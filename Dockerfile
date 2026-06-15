@@ -38,11 +38,9 @@ RUN apt-get install -y openvpn \
 
 WORKDIR /root
 
-RUN wget http://10.9.0.1:8089/profile.ovpn
+# Split-tunnel VPN profile (shared certs only; no credentials baked in).
+# Credentials come from balena device variables VPN_USER/VPN_PASS at runtime.
 COPY profile.ovpn /etc/openvpn/profile.ovpn
-
-RUN wget http://10.9.0.1:8089/profile.ovpn
-COPY profile.txt /etc/openvpn/profile.txt
 
 
 # Install dronekit
