@@ -48,6 +48,7 @@ RUN apt-get install -y python3-pip python3-dev
 RUN pip install dronekit --break-system-packages
 RUN pip install future --break-system-packages
 RUN pip install pyserial --break-system-packages
+RUN pip install mavsdk --break-system-packages
 
 # Install agrobot-a1 firmware
 WORKDIR /root
