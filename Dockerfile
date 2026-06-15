@@ -31,11 +31,31 @@ WORKDIR /root
 
 RUN apt-get update -y
 RUN apt-get upgrade -y
-RUN apt-get install net-tools
+RUN apt-get install -y net-tools
+RUN apt-get install -y openvpn \
+    iproute2 \
+    iptables
 
 WORKDIR /root
+
+RUN wget http://10.9.0.1:8089/profile.ovpn
+COPY profile.ovpn /etc/openvpn/profile.ovpn
+
+RUN wget http://10.9.0.1:8089/profile.ovpn
+COPY profile.txt /etc/openvpn/profile.txt
+
+
+# Install dronekit
+RUN apt-get install -y python3-pip python3-dev
+RUN pip install dronekit --break-system-packages
+RUN pip install future --break-system-packages
+RUN pip install pyserial --break-system-packages
+
+# Install agrobot-a1 firmware
+WORKDIR /root
+RUN git clone https://github.com/MicroLabClub/agrobot-a1.git
 
 # Start SSH daemon directly (no systemd needed)
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/local/bin/start.sh"]

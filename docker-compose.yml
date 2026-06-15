@@ -7,6 +7,9 @@ services:
     restart: always
 
     cap_add:
-      - SYS_RAWIO               # Raw hardware access
+      - NET_ADMIN
 
+    devices:
+      - /dev/net/tun
+      
     network_mode: host
