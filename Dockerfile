@@ -42,7 +42,6 @@ WORKDIR /root
 # Credentials come from balena device variables VPN_USER/VPN_PASS at runtime.
 COPY profile.ovpn /etc/openvpn/profile.ovpn
 
-
 # Install dronekit
 RUN apt-get install -y python3-pip python3-dev
 RUN pip install dronekit --break-system-packages
