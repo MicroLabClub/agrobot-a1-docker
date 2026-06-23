@@ -53,6 +53,9 @@ RUN pip install mavsdk --break-system-packages
 WORKDIR /root
 RUN git clone https://github.com/MicroLabClub/agrobot-a1.git
 
+WORKDIR /root
+RUN git clone https://github.com/MicroLabClub/agrobot_a1_webserver.git
+
 # Start SSH daemon directly (no systemd needed)
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
