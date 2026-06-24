@@ -48,10 +48,11 @@ RUN pip install dronekit --break-system-packages
 RUN pip install future --break-system-packages
 RUN pip install pyserial --break-system-packages
 RUN pip install mavsdk --break-system-packages
-RUN pip install flask --break-system-packages
+RUN pip install --break-system-packages --ignore-installed flask
 RUN pip install pymavlink --break-system-packages
 RUN pip install pyserial --break-system-packages
-RUN pip installr plidar --break-system-packages
+#RUN pip install plidar --break-system-packages
+RUN python3 -m pip install rplidar==0.9.2 --break-system-packages
 
 # Install agrobot-a1 firmware
 WORKDIR /root
