@@ -13,3 +13,31 @@ services:
       - /dev/net/tun
       
     network_mode: host
+
+  agrobot-a1-phy:
+    build: .                    # Builds from your Dockerfile
+    privileged: true            # Required for /dev access
+    restart: always
+
+    cap_add:
+      - NET_ADMIN
+
+    devices:
+      - /dev/net/tun
+      
+    network_mode: host
+
+
+  agrobot-a1-phy_V1:
+    build: ./V1                    # Builds from your Dockerfile
+    privileged: true            # Required for /dev access
+    restart: always
+
+    cap_add:
+      - NET_ADMIN
+
+    devices:
+      - /dev/net/tun
+      
+    network_mode: host
+
