@@ -2,8 +2,8 @@ version: '2.1'
 
 services:
   agrobot-a1-app:
-    build: .                    # Builds from your Dockerfile
-    privileged: true            # Required for /dev access
+    build: ./AGROBOT-A1-APP
+    privileged: true
     restart: always
 
     cap_add:
@@ -14,9 +14,9 @@ services:
       
     network_mode: host
 
-  agrobot-a1-phy:
-    build: .                    # Builds from your Dockerfile
-    privileged: true            # Required for /dev access
+  agrobot-a1-phy-v1:
+    build: ./V1                   
+    privileged: true           
     restart: always
 
     cap_add:
@@ -28,9 +28,9 @@ services:
     network_mode: host
 
 
-  agrobot-a1-phy_V1:
-    build: ./V1                    # Builds from your Dockerfile
-    privileged: true            # Required for /dev access
+  agrobot-a1-phy-v2:
+    build: ./V2                   
+    privileged: true         
     restart: always
 
     cap_add:

@@ -216,9 +216,3 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-
-# VPN secrets — provided locally before `balena push`, never committed.
-profile.ovpn
-profile.txt
-profile_.ovpn
-profile_.txt

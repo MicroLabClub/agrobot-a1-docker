@@ -16,12 +16,12 @@ RUN apt-get update && apt-get install -y openssh-server \
 
 # Configure SSH
 RUN echo 'root:root' | chpasswd \
-    && sed -i 's/#Port 22/Port 223/' /etc/ssh/sshd_config \
+    && sed -i 's/#Port 22/Port 224/' /etc/ssh/sshd_config \
     && sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
     && sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
 
 # Expose SSH port
-EXPOSE 223
+EXPOSE 224
 
 RUN add-apt-repository universe
 RUN apt-get update
